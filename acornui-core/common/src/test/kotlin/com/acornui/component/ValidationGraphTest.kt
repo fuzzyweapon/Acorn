@@ -8,7 +8,7 @@ import kotlin.test.assertFalse
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 
-class ValidationTreeTest {
+class ValidationGraphTest {
 
 	private val ONE: Int = 1 shl 0
 	private val TWO: Int = 1 shl 1
