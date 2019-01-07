@@ -62,7 +62,7 @@ class SpriteAnimation(owner: Owned) : ContainerImpl(owner) {
 	 */
 	var loops = true
 
-	val stepTime: Float
+	val tickTime: Float
 		get() = 1f / frameRate.toFloat()
 
 	/**
@@ -80,12 +80,12 @@ class SpriteAnimation(owner: Owned) : ContainerImpl(owner) {
 	init {
 		onTick {
 			if (!paused && frameClips.isNotEmpty()) {
-				val stepTime = this.stepTime
+				val tickTime = this.tickTime
 
 				elapsed += it
-				while (elapsed >= stepTime) {
+				while (elapsed >= tickTime) {
 					// Tick a frame
-					elapsed -= stepTime
+					elapsed -= tickTime
 					frameClips[currentFrame - startFrame].visible = false // Hide the old frame clip.
 					if (currentFrame >= _endFrame) {
 						if (loops)
